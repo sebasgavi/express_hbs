@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+    <img src="img/egghead-node-serve-static-files-with-express.jpg" alt="">
+
+    <ul>
+        {{#each personas}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+
+    <ul>
+        {{#each carros}}
+            <li>
+                <h4>{{nombre}}</h4>
+                <p>Llantas: {{llantas}}</p>
+                <span class="ribbon">{{cilindraje}}</span>
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</html>
