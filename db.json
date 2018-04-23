@@ -1,0 +1,12 @@
+{
+    "motos": [
+        {
+            "marca": "Honda",
+            "modelo": "XRE300"
+        },
+        {
+            "marca": "Yamaha",
+            "modelo": "MT07"
+        }
+    ]
+}
