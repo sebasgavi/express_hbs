@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display:flex;
+                width:600px;
+                margin:auto;">
+        {{#each productos}}
+            <div style="flex: 1 1 40%">
+                <a href="/producto/{{modelo}}">
+                    <div style="width:100%;
+                                height:200px;
+                                background-image: url({{img_principal}});
+                                background-size: contain;
+                                background-repeat: no-repeat;"></div>
+                    <p><b>{{marca}}</b></p>
+                    <p>{{modelo}}</p>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+
+    <h2>Filtrar por marca:</h2>
+    <a href="/?marca=Honda">Honda</a>
+    <a href="/?marca=Yamaha">Yamaha</a>
+    <a href="/">Todas</a>
+
+    <h2>Filtrar por modelo:</h2>
+    <a href="/?menor=10000000&mayor=20000000">XRE300</a>
+    <a href="/?modelo=Teneré 660">Teneré 660</a>
+    <a href="/">Todas</a>
+
+    <br><br>
+    <input type="range" name="" id="slider" min="10" max="20">
+    <input type="range" name="" id="sliderMax" min="10" max="20">
+    <button>Buscar</button>
+
+    <script>
+        console.log('hola cliente');
+        var slider = document.querySelector('#slider');
+        var sliderMax = document.querySelector('#sliderMax');
+        document.querySelector('button').addEventListener('click', function(e){
+            e.preventDefault();
+            location.href = '/?min=' + slider.value + '&max='+sliderMax.value;
+        })
+    </script>
+</body>
+</html>
