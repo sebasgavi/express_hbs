@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon index"
+    "start": "./node_modules/.bin/nodemon index",
+    "mongo": "C:/\"Program Files\"/MongoDB/Server/3.4/bin/mongod.exe"
   },
   "author": "",
   "license": "ISC",

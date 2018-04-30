@@ -1,4 +1,5 @@
-const MongoClient = require('mongodb').MongoClient,
+const MongoClient = require('mongodb').MongoClient
+    ObjectID = require('mongodb').ObjectID,
     express = require('express'),
     engines = require('consolidate');
 
@@ -9,6 +10,8 @@ app.engine('hbs', engines.handlebars);
 
 app.set('views', './views');
 app.set('view engine', 'hbs');
+
+app.use(express.static('public'));
 
 // Conectarse a Base de Datos
 MongoClient.connect('mongodb://localhost:27017', function (err, client) {
@@ -45,10 +48,28 @@ app.get('/', (req, res) => {
             res.render('index', {
                 productos: result
             });
-        })
+        });
+});
+
+app.get('/checkout', (req, res) => {
+    res.render('checkout');
 });
 
 
 app.get('/producto/:id', (req, res) => {
     db.collection('productos').find({ modelo: req.params.id }).toArray((err, result) => res.send(result))
-})
+});
+
+
+app.get('/productosPorIds', (req, res) => {
+    console.log(req.query.ids);
+    var arreglo = req.query.ids.split(',');
+    arreglo = arreglo.map(function(id) {
+        return new ObjectID(id);
+    });
+    var prod = db.collection('productos')
+        .find({ _id: { $in: arreglo } })
+        .toArray((err, result) => {
+            res.send(result);
+        });
+});
