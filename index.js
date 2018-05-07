@@ -27,7 +27,7 @@ MongoClient.connect(`mongodb+srv://cluster0-c5bcf.mongodb.net/tienda`,
         db = client.db('tienda');
 
         // Iniciar servidor
-        app.listen(1234);
+        app.listen(process.env.PORT || 1234);
     }
 );
 
