@@ -14,16 +14,22 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 // Conectarse a Base de Datos
+MongoClient.connect(`mongodb+srv://cluster0-c5bcf.mongodb.net/tienda`, 
+    {
+        auth: {
+            user: 'sgaviria',
+            password: 'ContraseñaSuperSegura123'
+        }
+    },
+    function (err, client) {
+        if (err) throw err;
 
-var pass = escape('ContraseñaSuperSegura123');
-MongoClient.connect(`mongodb+srv://sgaviria:${pass}@cluster0-c5bcf.mongodb.net/tienda`, function (err, client) {
-    if (err) throw err;
+        db = client.db('tienda');
 
-    db = client.db('tienda');
-
-    // Iniciar servidor
-    app.listen(1234);
-});
+        // Iniciar servidor
+        app.listen(1234);
+    }
+);
 
 
 
