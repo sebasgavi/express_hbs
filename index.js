@@ -15,11 +15,11 @@ app.use(express.static('public'));
 
 // Conectarse a Base de Datos
 
-var pass = encodeURIComponent('ContraseñaSuperSegura123');
+var pass = escape('ContraseñaSuperSegura123');
 MongoClient.connect(`mongodb+srv://sgaviria:${pass}@cluster0-c5bcf.mongodb.net/tienda`, function (err, client) {
     if (err) throw err;
 
-    db = client.db('test');
+    db = client.db('tienda');
 
     // Iniciar servidor
     app.listen(1234);
