@@ -14,7 +14,7 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 // Conectarse a Base de Datos
-MongoClient.connect('mongodb+srv://sgaviria:ContraseñaSuperSegura123@cluster0-c5bcf.mongodb.net/test', function (err, client) {
+MongoClient.connect('mongodb+srv://sgaviria:Contrase\ñaSuperSegura123@cluster0-c5bcf.mongodb.net/test', function (err, client) {
     if (err) throw err;
 
     db = client.db('test');
